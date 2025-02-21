@@ -1,0 +1,23 @@
+---
+title: t2t.py
+engine: knitr
+---
+
+```{python}
+#| eval: false
+#| python.reticulate: false
+from transformers import GPT2LMHeadModel, GPT2Tokenizer # 필요 라이브러리 가져오기
+
+model_name = 'gpt2' # 사용 모델
+tokenizer = GPT2Tokenizer.from_pretrained(model_name) # 텍스트를 숫자로 변환하는 토크나이저 로드
+model = GPT2LMHeadModel.from_pretrained(model_name) # 사전학습된 모델인 GPT-2 로드
+
+input_text = "I want to eat some delicious food." # 원하는 텍스트 입력
+
+inputs = tokenizer(input_text, return_tensors = 'pt') # pytorch 형식으로 변환
+outputs = model.generate(**inputs, max_length=50) # 문장 생성
+
+print("결과 확인")
+print(tokenizer.decode(outputs[0], skip_special_tokens=True)) # 생성 결과물 확인
+
+```

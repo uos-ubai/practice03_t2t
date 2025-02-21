@@ -1,0 +1,34 @@
+project:
+  type: book
+
+book:
+  title: "UBAI PRACTICE - T2T Generation"
+  author: "hs.hwang"
+  date: "2025. 02. 21."
+  page-footer:
+    left: |
+      Urban Big Data and AI Institution
+    right: |
+      University of Seoul
+  chapters:
+    - index.qmd
+    - t2t.qmd
+
+format:
+  html:
+    theme: 
+      - minty
+      - r4ds.scss
+    author-meta: "hs.hwang"
+    callout-appearance: simple
+    fontsize: 1em
+    linestretch: 1.5
+    code-overflow: wrap
+    code-block-bg: true
+    code-block-border-left: true
+    number-sections: false
+  pdf:
+    documentclass: scrreprt
+
+
+

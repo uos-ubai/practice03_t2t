@@ -1,0 +1,15 @@
+{
+  "hash": "825728ebe7aefe85cda8c680a79bd1fd",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: t2t.py\nengine: knitr\n---\n\n::: {.cell python.reticulate='false'}\n\n```{.python .cell-code}\nfrom transformers import GPT2LMHeadModel, GPT2Tokenizer # 필요 라이브러리 가져오기\n\nmodel_name = 'gpt2' # 사용 모델\ntokenizer = GPT2Tokenizer.from_pretrained(model_name) # 텍스트를 숫자로 변환하는 토크나이저 로드\nmodel = GPT2LMHeadModel.from_pretrained(model_name) # 사전학습된 모델인 GPT-2 로드\n\ninput_text = \"I want to eat some delicious food.\" # 원하는 텍스트 입력\n\ninputs = tokenizer(input_text, return_tensors = 'pt') # pytorch 형식으로 변환\noutputs = model.generate(**inputs, max_length=50) # 문장 생성\n\nprint(\"결과 확인\")\nprint(tokenizer.decode(outputs[0], skip_special_tokens=True)) # 생성 결과물 확인\n\n```\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
